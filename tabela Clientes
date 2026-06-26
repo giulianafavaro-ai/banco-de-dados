@@ -1,0 +1,35 @@
+-- Criação da tabela Clientes
+CREATE TABLE Clientes (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE,
+    telefone TEXT
+);
+
+-- Criação da tabela Compras
+CREATE TABLE Compras (
+    id_compra INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_cliente INTEGER,
+    produto TEXT NOT NULL,
+    quantidade INTEGER,
+    valor REAL,
+    data_compra DATE,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+
+-- Inserção de dados em Clientes
+INSERT INTO Clientes (nome, email, telefone) VALUES
+('Maria Silva', 'maria.silva@email.com', '41999990001'),
+('João Souza', 'joao.souza@email.com', '41999990002'),
+('Ana Costa', 'ana.costa@email.com', '41999990003');
+
+-- Inserção de dados em Compras
+INSERT INTO Compras (id_cliente, produto, quantidade, valor, data_compra) VALUES
+(1, 'Notebook', 1, 3500.00, '2026-06-20'),
+(2, 'Smartphone', 2, 2400.00, '2026-06-21'),
+(3, 'Fones de ouvido', 3, 450.00, '2026-06-22'),
+(1, 'Mouse sem fio', 1, 120.00, '2026-06-23');
+
+-- Consultas
+SELECT * FROM Clientes;
+SELECT * FROM Compras;
