@@ -63,3 +63,5 @@ INSERT INTO Compras (ClienteID, NomeLivro, Valor) VALUES
 -- FROM Clientes c
 -- LEFT JOIN Compras co ON c.ID = co.ClienteID
 -- GROUP BY c.ID, c.nomeCliente;
+SELECT * FROM Clientes; 
+SELECT * FROM Compras; 
