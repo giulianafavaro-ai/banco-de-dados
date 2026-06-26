@@ -45,19 +45,6 @@ INSERT INTO Compras (ClienteID, NomeLivro, Valor) VALUES
 (3, 'O Código Da Vinci', 60.00),
 (4, 'A Menina que Roubava Livros', 48.90);
 
--- =====================================================
--- CONSULTAS ÚTEIS
--- =====================================================
-
--- Ver todos os clientes
--- SELECT * FROM Clientes;
-
--- Ver todas as compras com dados do cliente
--- SELECT c.nomeCliente, c.emailCliente, co.NomeLivro, co.DataCompra, co.Valor
--- FROM Compras co
--- JOIN Clientes c ON co.ClienteID = c.ID
--- ORDER BY co.DataCompra DESC;
-
 -- Total gasto por cliente
 -- SELECT c.nomeCliente, COUNT(co.CompraID) as TotalCompras, SUM(co.Valor) as TotalGasto
 -- FROM Clientes c
@@ -65,3 +52,11 @@ INSERT INTO Compras (ClienteID, NomeLivro, Valor) VALUES
 -- GROUP BY c.ID, c.nomeCliente;
 SELECT * FROM Clientes; 
 SELECT * FROM Compras; 
+SELECT 
+    c.nomeCliente AS "Nome do Cliente",
+    co.NomeLivro AS "Nome do Livro",
+    co.DataCompra AS "Data da Compra",
+    co.Valor AS "Valor"
+FROM Compras co
+INNER JOIN Clientes c ON co.ClienteID = c.ID
+ORDER BY co.DataCompra DESC;
